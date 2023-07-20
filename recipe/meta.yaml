@@ -1,5 +1,5 @@
 {% set name = "cssbeautifier" %}
-{% set version = "1.14.8" %}
+{% set version = "1.14.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/cssbeautifier-{{ version }}.tar.gz
-  sha256: 9ad4c5b2ffe0b439a4bed278bc440b6a89c40823c3f19db38f808d256216a592
+  sha256: 2da432472f68170eb854aff97b16a24721f5090ee36af2e31199590a89e7f71f
 
 build:
   entry_points:
