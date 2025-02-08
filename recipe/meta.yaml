@@ -1,5 +1,5 @@
 {% set name = "cssbeautifier" %}
-{% set version = "1.15.1" %}
+{% set version = "1.15.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/cssbeautifier-{{ version }}.tar.gz
-  sha256: 9f7064362aedd559c55eeecf6b6bed65e05f33488dcbe39044f0403c26e1c006
+  sha256: 02d42ffa6aefaa87f18452b437dbb73f6b98f42e9a84759810dc58f7a6bfc26c
 
 build:
   entry_points:
     - css-beautify = cssbeautifier:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 1
+  number: 0
 
 requirements:
   host:
