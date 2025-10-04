@@ -1,8 +1,9 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/prefix-dev/recipe-format/main/schema.json
 schema_version: 1
 
 context:
   name: cssbeautifier
-  version: 1.15.4
+  version: "1.15.4"
 
 package:
   name: ${{ name|lower }}
@@ -37,6 +38,7 @@ tests:
       imports:
         - cssbeautifier
       python_version: ${{ python_min }}.*
+      pip_check: true
   - requirements:
       run:
         - pip
