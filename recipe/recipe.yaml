@@ -2,58 +2,49 @@
 schema_version: 1
 
 context:
-  name: cssbeautifier
-  version: "1.15.4"
+  version: "2.0.3"
 
 package:
-  name: ${{ name|lower }}
+  name: cssbeautifier
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/cssbeautifier-${{ version }}.tar.gz
-  sha256: 9bb08dc3f64c101a01677f128acf01905914cf406baf87434dcde05b74c0acf5
+  url: https://pypi.org/packages/source/c/cssbeautifier/cssbeautifier-${{ 
+    version }}.tar.gz
+  sha256: 2c2fd129342561029de86b1744efa231c9fafe26023dbc988a1deb0ca0f5c845
 
 build:
-  number: 1
+  number: 0
   noarch: python
-  script: ${{ PYTHON }} -m pip install . -vv
-  python:
-    entry_points:
-      - css-beautify = cssbeautifier:main
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
     - python ${{ python_min }}.*
-    - pytest
     - pip
     - setuptools
   run:
-    - python >=${{ python_min }},<4.0
+    - python >=${{ python_min }}
     - jsbeautifier
-    - six >=1.13.0
     - editorconfig >=0.12.2
 
 tests:
   - python:
       imports:
         - cssbeautifier
-      python_version: ${{ python_min }}.*
       pip_check: true
-  - requirements:
-      run:
-        - pip
-        - python ${{ python_min }}.*
-    script:
-      - pip check
-      - css-beautify --help
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
 
 about:
-  summary: CSS unobfuscator and beautifier.
+  homepage: https://beautifier.io
   license: MIT
   license_file: LICENSE
-  homepage: https://beautifier.io
+  summary: CSS unobfuscator and beautifier.
+  description: |
+    CSS unobfuscator and beautifier.
   repository: https://github.com/beautify-web/js-beautify
-
 extra:
   recipe-maintainers:
     - rxm7706
